@@ -1,0 +1,5 @@
+email,password,validity
+venus.taylor@example.com,123456,valid
+invaliduser@example.com,test321,invalid
+validuser@example.com,test321,invalid
+,,invalid

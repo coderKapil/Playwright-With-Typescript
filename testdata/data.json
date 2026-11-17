@@ -1,0 +1,25 @@
+
+{
+  "loginTestData": [
+    {
+      "email": "venus.taylor@example.com",
+      "password": "123456",
+      "validity": "valid"
+    },
+    {
+      "email": "invaliduser@example.com",
+      "password": "test321",
+      "validity": "invalid"
+    },
+    {
+      "email": "validuser@example.com",
+      "password": "test321",
+      "validity": "invalid"
+    },
+    {
+      "email": "",
+      "password": "",
+      "validity": "invalid"
+    }
+  ]
+}

@@ -12,6 +12,10 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+  // grep:/@sanity/,
+  // grep:/@regression/,
+  // grep:/(?=.*@sanity)(?=.*@regression)/,
+  // grepInvert:/@regression/,
 // To change the timeouts globally for all tests (default is 30000ms/30sec)
 // timeout: 60000,
 
@@ -27,14 +31,15 @@ export default defineConfig({
   //Retry locally
   // retries:3,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  // workers: process.env.CI ? 1 : undefined,
+  workers:1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
 
-    screenshot:'only-on-failure',//this will capture the screenshots when test fails
-    video:"retain-on-failure",//this will capture the video when test fails
+    // screenshot:'only-on-failure',//this will capture the screenshots when test fails
+    // video:"retain-on-failure",//this will capture the video when test fails
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
@@ -48,6 +53,7 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      // fullyParallel:true
     },
 
     // {
