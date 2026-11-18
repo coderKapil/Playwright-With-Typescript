@@ -32,14 +32,18 @@ export default defineConfig({
   // retries:3,
   /* Opt out of parallel tests on CI. */
   // workers: process.env.CI ? 1 : undefined,
-  workers:1,
+  workers:3,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  // reporter: 'html',
+  reporter: [['html',{open:'always',outputFolder:'html-report'}],
+    ['allure-playwright'],
+            // ['./my-custom-reporter.ts']
+             ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
 
-    // screenshot:'only-on-failure',//this will capture the screenshots when test fails
-    // video:"retain-on-failure",//this will capture the video when test fails
+    screenshot:'only-on-failure',//this will capture the screenshots when test fails
+    video:"retain-on-failure",//this will capture the video when test fails
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
